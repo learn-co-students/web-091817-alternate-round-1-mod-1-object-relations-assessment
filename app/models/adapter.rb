@@ -15,8 +15,17 @@ class Adapter
     JSON.parse(File.read(file))
   end
 
-  def create_objects_from_file
-    # create article and category objects here
+  def create_objects_from_file(file)
+    self.articles.each do |file|
+      Category.new(file[:category])
+      Article.new(file[:title],  file[:description],  file[:url],  file[:contributor],  file[:time_published])
+    end
   end
-
 end
+
+
+# 3. **Adapter Class:**
+#    Adapter#create_objects_from_file
+#    - This method should use the provided articles data to create Article and
+ # Category objects. It should return the created instances.
+ Pry.start
