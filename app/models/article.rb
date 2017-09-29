@@ -10,7 +10,7 @@ class Article
     @url = url
     @contributor = contributor
     @time_published = time_published
-    @category = category
+    @category = Category.find_or_create(category) 
     @@all << self
   end
 

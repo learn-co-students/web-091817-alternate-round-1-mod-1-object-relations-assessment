@@ -20,7 +20,7 @@ class Adapter
   def create_objects_from_file
     articles.map do |article|
       Article.new(article[:title], article[:description], article[:url], article[:contributor], article[:time_published], article[:category])
-      Category.find_or_create(article[:category])
+      #Category.find_or_create(article[:category])
     end
   end
 
