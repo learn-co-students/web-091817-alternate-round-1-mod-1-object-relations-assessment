@@ -7,7 +7,7 @@
 + Object Relationships
 + Arrays and Array Methods
 + Class Methods
-
+ 
 For this assignment, we're going to be helping New Yorker Magazine organize its articles and categories for their new website. We'll create an adapter class to import json data and convert it into article and category class instances. **An article belongs to a category and a category can have many articles**
 
 ## Notes
@@ -25,7 +25,7 @@ The below are the methods that must be present on your models. Feel free to buil
 1. Build the Article and Category classes and their associations. Write initialize methods for each.
    - A category has a name
    - An article has a title, description, url, contributor, and time published
-   
+
 2. Build Category and Article methods:
 
   #### Category Class
@@ -36,7 +36,7 @@ The below are the methods that must be present on your models. Feel free to buil
    #### Article Class:
   - Article.all
     + Class level method that returns all Article instances. When an article instance is initialized, it should be added to the collection of all Article instances.
-    
+
 3. **Adapter Class:**
    Adapter#create_objects_from_file
    - This method should use the provided articles data to create Article and Category objects. It should return the created instances.     
