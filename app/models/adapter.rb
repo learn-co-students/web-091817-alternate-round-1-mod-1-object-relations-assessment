@@ -16,7 +16,11 @@ class Adapter
   end
 
   def create_objects_from_file
-    # create article and category objects here
+    self.articles.each do |article|
+      Article.new(article["title"], article["description"], article["url"], article["contributor"], article["publishedAt"])
+      # ^cycles through each element and creates an object for article with the correct information
+      Category.new(article["category"]) #creates a Category object for each articles category
+    end
   end
 
 end
