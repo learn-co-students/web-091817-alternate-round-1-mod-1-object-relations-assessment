@@ -16,7 +16,11 @@ class Adapter
   end
 
   def create_objects_from_file
-    # create article and category objects here
+    self.articles.each do |article|
+      category = Category.find_or_create(article["category"])
+      Article.new(article, category)
+    end
   end
-
 end
+
+ Pry.start
