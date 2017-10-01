@@ -1,5 +1,5 @@
 class Category
-  attr_reader  name
+  attr_reader :name
 
   @@all = []
 
@@ -21,26 +21,17 @@ class Category
       end
    end
 
-   def self.top_category
-      self.all.each do |category|
-        category.count.max
-      end
-    end
- end
-  # - Category.find_or_create
-  #   + This method takes in one argument, which is a string of the category name. The method should create
-  #    a new instance of a category if one doesn't already exist. Otherwise, it should return the existing category instance.
+   def category_count
+     $counts = {}
+     categories = Articles.all.fetch{ |article| article.category }
+     self.all.each do |category|
+       count = categories.select.count { category == category.name }
+       counts << "#{category}: #{count}"
+     end
+  end
 
+   def self.top_category
+     $counts.sort_by(values).max
+   end
 
 end
-
-# 2. Build Category and Article methods:
-#
-#   #### Category Class
-#   - Category.all
-#     + returns all categories. When a category is initialized, it should be added to
-#     an array of all categories.
-#   - Category.find_or_create
-#     + This method takes in one argument, which is a string of the category name. The
-#     method should create a new instance of a category if one doesn't already exist.
-#      Otherwise, it should return the existing category instance.
